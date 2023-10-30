@@ -36,7 +36,11 @@ type Transport struct {
 }
 
 // Default is default transport.
-var Default = &Transport{}
+var Default = &Transport{
+	TLSClientConfig: &tls.Config{
+		InsecureSkipVerify: true,
+	},
+}
 
 // Name is the name of websocket transport.
 func (t *Transport) Name() string {
